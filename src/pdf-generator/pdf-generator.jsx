@@ -2,10 +2,32 @@ import React, { useRef } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import HmSignDoc from './templates/hm-sign-doc/hm-sign-doc';
-import './templates/hm-sign-doc/hm-sgin-doc.css';
+import './css/pdf-generator.css';
 
-const PdfGenerator = ({ studentName, courseName, issueDate }) => {
+const PdfGenerator = ({ }) => {
   const printRef = useRef();
+  
+  // Predefined variables
+  const schoolName = 'ABaaCDE';
+  const fromName = "Jon Don";
+  const toName = `Don Bose, 
+  Engineer, 
+  Google`;
+  const issueDate = "2024-03-20";
+  const orderNumber = "01/25";
+  const subject = "Subject";
+  const ref = "Ref";
+  const body = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+`
 
   const handleGeneratePdf = async () => {
     const element = printRef.current;
@@ -18,20 +40,25 @@ const PdfGenerator = ({ studentName, courseName, issueDate }) => {
     const pdfHeight = (imgHeight * pdfWidth) / imgWidth;
 
     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`${studentName || 'verification'}.pdf`);
+    pdf.save(`${fromName || 'verification'}.pdf`);
   };
 
   return (
     <div>
       <div ref={printRef}>
         <HmSignDoc
-          studentName={studentName}
-          courseName={courseName}
+          schoolName={schoolName}
+          fromName={fromName}
+          orderNumber={orderNumber}
           issueDate={issueDate}
+          toName={toName}
+          subject={subject}
+          ref={ref}
+          body={body}
         />
       </div>
       <button onClick={handleGeneratePdf} className="download-button">
-        Download PDF
+        <b>Download PDF</b>
       </button>
     </div>
   );

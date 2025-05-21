@@ -1,31 +1,42 @@
 import React from 'react';
 import './hm-sgin-doc.css';
 
-const HmSignDoc = ({ studentName, courseName, issueDate }) => (
+const HmSignDoc = ({ schoolName, fromName, toName, issueDate, orderNumber, subject, ref, body }) => (
   <div className="page">
     <div className="header">
-      <h1>ABCDE School</h1>
-      <p>Digital Verification Certificate</p>
+      <h1 className="school-name">{schoolName}</h1>
+      <hr className="header-line" />
+      <div className="order-info">
+        <span className="order-number">Order No: {orderNumber}</span>
+        <span className="date">Date: {issueDate}</span>
+      </div>
+      <div className="from-section">
+        <span>From:</span>
+        <div className="name">{fromName}</div>
+      </div>
+      <div className="to-section">
+        <span>To:</span>
+        <div className="to-content">
+          {toName}
+        </div>
+      </div>
     </div>
 
     <div className="content">
-      <p><strong>Student Name:</strong> {studentName}</p>
-      <p><strong>Course:</strong> {courseName}</p>
-      <p><strong>Date of Issue:</strong> {issueDate}</p>
-
-      <h2>Verification Details</h2>
-      <p>
-        This is to certify that the information provided above has been
-        verified against our official records. The document is digitally
-        generated and is valid without a signature.
-      </p>
-
-      <h2>Instructions</h2>
-      <ul>
-        <li>Keep this document for your records.</li>
-        <li>Any alterations will void the verification.</li>
-        <li>Contact the administration for any queries.</li>
-      </ul>
+      <div className="letter-content">
+        <div>Sir,</div>
+        <div className="subject-section">
+          <span>Sub:</span>
+          <span className="subject"> {subject}</span>
+        </div>
+        <div className="ref-section">
+          <span>Ref:</span>
+          <span className="ref"> {ref}</span>
+        </div>
+        {body.split('\n').map((paragraph, index) => (
+          <p key={index} className="body-paragraph">{paragraph}</p>
+        ))}
+      </div>
     </div>
 
     <div className="footer">

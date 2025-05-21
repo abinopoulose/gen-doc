@@ -20,12 +20,11 @@ body, .page {
   padding: 10mm;
   position: relative;
   background-color: white;
-
+  font-family: "Times New Roman", Times, serif;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .header h1 {
@@ -47,9 +46,52 @@ body, .page {
   color: #666;
 }
 
-.download-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
+.header-line {
+  border-color: black;
+  margin: 1rem 0;
+}
+
+.school-name {
+  text-align: center;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.from-section, .to-section {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.name {
+  margin-left: 2rem;
+}
+
+.to-content {
+  margin-left: 2rem;
+  white-space: pre-line;
+}
+
+.subject, .ref {
+  /* margin-left: 1rem; */
+}
+
+.subject-section, .ref-section {
+  margin-left: 2rem;
+}
+
+.subject-section {
+  margin-bottom: 20px;
+}
+
+.letter-content p {
+  text-align: justify;
+}
+
+.body-paragraph {
+  text-align: justify;
+  white-space: pre-wrap;
 }
