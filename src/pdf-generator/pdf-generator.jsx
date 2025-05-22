@@ -44,7 +44,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
   };
 
   return (
-    <div>
+    <div className='pdf-container'>
       <div ref={printRef}>
         <HmSignDoc
           schoolName={schoolName}
@@ -57,9 +57,12 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
           body={body}
         />
       </div>
-      <button onClick={handleGeneratePdf} className="download-button">
-        <b>Download PDF</b>
-      </button>
+      {/* <div className='download-button-container'> */}
+        <button onClick={handleGeneratePdf} className="download-button">
+          <b>Download PDF</b>
+        </button>
+      {/* </div> */}
+      
     </div>
   );
 };
