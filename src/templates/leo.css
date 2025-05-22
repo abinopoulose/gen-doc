@@ -82,7 +82,7 @@ body, .page {
 }
 
 .subject, .ref {
-  margin-left: 1rem;
+  margin-left: .1rem;
 }
 
 .subject-section, .ref-section {

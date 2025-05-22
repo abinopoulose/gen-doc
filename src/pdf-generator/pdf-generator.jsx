@@ -12,7 +12,8 @@ const PdfGenerator = ({
   toName,
   subject,
   ref,
-  body 
+  body,
+  footer 
 }) => {
   const printRef = useRef();
   
@@ -57,6 +58,7 @@ const PdfGenerator = ({
           subject={subject}
           ref={ref}
           body={body}
+          footer={footer}
         />
       </div>
 
@@ -70,6 +72,7 @@ const PdfGenerator = ({
           subject={subject}
           ref={ref}
           body={body}
+          footer={footer}
         />
       </div>
       

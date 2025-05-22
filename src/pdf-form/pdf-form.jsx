@@ -10,7 +10,8 @@ const PdfForm = ({ onSubmit }) => {
     toName: '',
     subject: '',
     ref: '',
-    body: ''
+    body: '',
+    footer: ''
   });
 
   const handleChange = (e) => {
@@ -148,6 +149,19 @@ const PdfForm = ({ onSubmit }) => {
               rows="10"
               placeholder="Enter message body"
               style={{ minHeight: '250px', resize: 'vertical' }}
+            />
+          </div>
+
+          <div className="formbold-textarea">
+            <label htmlFor="footer" className="formbold-form-label">Footer</label>
+            <textarea
+              name="footer"
+              id="footer"
+              value={formData.footer}
+              onChange={handleChange}
+              className="formbold-form-input"
+              placeholder="Enter footer text"
+              rows={2}
             />
           </div>
         </form>

@@ -11,7 +11,8 @@ function App() {
     toName: '',
     subject: '',
     ref: '',
-    body: ''
+    body: '',
+    footer: ''
   });
 
   const handleFormSubmit = (data) => {

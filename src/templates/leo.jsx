@@ -1,7 +1,6 @@
-import React from 'react';
 import './leo.css';
 
-const TemplateLeo = ({ schoolName, fromName, toName, issueDate, orderNumber, subject, ref, body }) => (
+const TemplateLeo = ({ schoolName, fromName, toName, issueDate, orderNumber, subject, ref, body, footer }) => (
   <div className="page">
     <div className="header">
       <h1 className="school-name">{schoolName}</h1>
@@ -40,7 +39,7 @@ const TemplateLeo = ({ schoolName, fromName, toName, issueDate, orderNumber, sub
     </div>
 
     <div className="footer">
-      ABCD • 1234 Elm Street, Hometown, Country • +91 1234567890
+      {footer || 'ABCD • 1234 Elm Street, Hometown, Country • +91 1234567890'}
     </div>
   </div>
 );
