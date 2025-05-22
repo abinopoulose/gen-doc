@@ -19,98 +19,140 @@ const PdfForm = ({ onSubmit }) => {
       ...prev,
       [name]: value
     }));
+
+    // Auto-resize textarea if it's the body field
+    if (name === 'body') {
+      const textarea = e.target;
+      textarea.style.height = 'auto';
+      textarea.style.height = `${Math.max(textarea.scrollHeight, 250)}px`; // 250px is roughly 10 rows
+    }
+
+    // Call onSubmit with updated form data
+    onSubmit({
+      ...formData,
+      [name]: value
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    // Remove this since we're updating on every change
+    // onSubmit(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="pdf-form">
-      <div className="form-group">
-        <label>Institute Name:</label>
-        <input
-          type="text"
-          name="schoolName"
-          value={formData.schoolName}
-          onChange={handleChange}
-        />
-      </div>
+    <div className="formbold-main-wrapper">
+      <div className="formbold-form-wrapper">
+        <form onSubmit={handleSubmit}>
+          <div className="formbold-input-flex">
+            <div>
+              <label htmlFor="schoolName" className="formbold-form-label">Institute Name</label>
+              <input
+                type="text"
+                name="schoolName"
+                id="schoolName"
+                value={formData.schoolName}
+                onChange={handleChange}
+                className="formbold-form-input"
+                placeholder="Enter institute name"
+              />
+            </div>
+            <div>
+              <label htmlFor="fromName" className="formbold-form-label">From Name</label>
+              <input
+                type="text"
+                name="fromName"
+                id="fromName"
+                value={formData.fromName}
+                onChange={handleChange}
+                className="formbold-form-input"
+                placeholder="Enter from name"
+              />
+            </div>
+          </div>
 
-      <div className="form-group">
-        <label>From Name:</label>
-        <input
-          type="text"
-          name="fromName"
-          value={formData.fromName}
-          onChange={handleChange}
-        />
-      </div>
+          <div className="formbold-input-flex">
+            <div>
+              <label htmlFor="orderNumber" className="formbold-form-label">Order Number</label>
+              <input
+                type="text"
+                name="orderNumber"
+                id="orderNumber"
+                value={formData.orderNumber}
+                onChange={handleChange}
+                className="formbold-form-input"
+                placeholder="Enter order number"
+              />
+            </div>
+            <div>
+              <label htmlFor="issueDate" className="formbold-form-label">Issue Date</label>
+              <input
+                type="date"
+                name="issueDate"
+                id="issueDate"
+                value={formData.issueDate}
+                onChange={handleChange}
+                className="formbold-form-input"
+              />
+            </div>
+          </div>
 
-      <div className="form-group">
-        <label>Order Number:</label>
-        <input
-          type="text"
-          name="orderNumber"
-          value={formData.orderNumber}
-          onChange={handleChange}
-        />
-      </div>
+          <div className="formbold-textarea">
+            <label htmlFor="toName" className="formbold-form-label">To Name</label>
+            <textarea
+              name="toName"
+              id="toName"
+              value={formData.toName}
+              onChange={handleChange}
+              className="formbold-form-input"
+              placeholder="Enter recipient name"
+              rows={4}
+            />
+          </div>
 
-      <div className="form-group">
-        <label>Issue Date:</label>
-        <input
-          type="date"
-          name="issueDate"
-          value={formData.issueDate}
-          onChange={handleChange}
-        />
-      </div>
+          <div className="formbold-input-flex">
+            <div>
+              <label htmlFor="subject" className="formbold-form-label">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="formbold-form-input"
+                placeholder="Enter subject"
+              />
+            </div>
+            <div>
+              <label htmlFor="ref" className="formbold-form-label">Reference</label>
+              <input
+                type="text"
+                name="ref"
+                id="ref"
+                value={formData.ref}
+                onChange={handleChange}
+                className="formbold-form-input"
+                placeholder="Enter reference"
+              />
+            </div>
+          </div>
 
-      <div className="form-group">
-        <label>To Name:</label>
-        <textarea
-          name="toName"
-          value={formData.toName}
-          onChange={handleChange}
-        />
+          <div className="formbold-textarea">
+            <label htmlFor="body" className="formbold-form-label">Body</label>
+            <textarea
+              name="body"
+              id="body"
+              value={formData.body}
+              onChange={handleChange}
+              className="formbold-form-input"
+              rows="10"
+              placeholder="Enter message body"
+              style={{ minHeight: '250px', resize: 'vertical' }}
+            />
+          </div>
+        </form>
       </div>
-
-      <div className="form-group">
-        <label>Subject:</label>
-        <input
-          type="text"
-          name="subject"
-          value={formData.subject}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="form-group">
-        <label>Reference:</label>
-        <input
-          type="text"
-          name="ref"
-          value={formData.ref}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="form-group">
-        <label>Body:</label>
-        <textarea
-          name="body"
-          value={formData.body}
-          onChange={handleChange}
-          rows="6"
-        />
-      </div>
-
-      <button type="submit" className="submit-button">
-        Update PDF Preview
-      </button>
-    </form>
+    </div>
   );
 };
 

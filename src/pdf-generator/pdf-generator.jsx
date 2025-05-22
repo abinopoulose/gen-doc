@@ -18,13 +18,28 @@ const PdfGenerator = ({
   
   const handleGeneratePdf = async () => {
     const element = printRef.current;
-    const canvas = await html2canvas(element, { scale: 2 });
+    
+    // Get the full height of the content
+    const fullHeight = element.scrollHeight;
+    const fullWidth = element.scrollWidth;
+    
+    // Create a canvas with the full dimensions
+    const canvas = await html2canvas(element, {
+      scale: 2,
+      width: fullWidth,
+      height: fullHeight,
+      windowWidth: fullWidth,
+      windowHeight: fullHeight,
+      scrollX: 0,
+      scrollY: 0,
+      useCORS: true
+    });
+
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF('p', 'mm', 'a4');
 
-    const { width: imgWidth, height: imgHeight } = pdf.getImageProperties(imgData);
     const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgHeight * pdfWidth) / imgWidth;
+    const pdfHeight = (fullHeight * pdfWidth) / fullWidth;
 
     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
     pdf.save(`${fromName || 'verification'}.pdf`);
@@ -32,18 +47,32 @@ const PdfGenerator = ({
 
   return (
     <div className="pdf-container">
-        <div ref={printRef}>
-          <TemplateLeo
-            schoolName={schoolName}
-            fromName={fromName}
-            orderNumber={orderNumber}
-            issueDate={issueDate}
-            toName={toName}
-            subject={subject}
-            ref={ref}
-            body={body}
-          />
-        </div>
+      <div className='scrollable-container'>
+        <TemplateLeo
+          schoolName={schoolName}
+          fromName={fromName}
+          orderNumber={orderNumber}
+          issueDate={issueDate}
+          toName={toName}
+          subject={subject}
+          ref={ref}
+          body={body}
+        />
+      </div>
+
+      <div ref={printRef} className='render-outside'>
+        <TemplateLeo
+          schoolName={schoolName}
+          fromName={fromName}
+          orderNumber={orderNumber}
+          issueDate={issueDate}
+          toName={toName}
+          subject={subject}
+          ref={ref}
+          body={body}
+        />
+      </div>
+      
       <button onClick={handleGeneratePdf} className="download-button">
         <b>Download PDF</b>
       </button>

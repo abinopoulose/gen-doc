@@ -15,6 +15,7 @@
   align-items: center;
   margin: 0 auto;
   padding: auto;
+  padding-bottom: 50px;
 }
 
 #root {
@@ -33,3 +34,8 @@
 }
 
 
+.render-outside {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
