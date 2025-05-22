@@ -1,7 +1,7 @@
 import React from 'react';
-import './hm-sgin-doc.css';
+import './leo.css';
 
-const HmSignDoc = ({ schoolName, fromName, toName, issueDate, orderNumber, subject, ref, body }) => (
+const TemplateLeo = ({ schoolName, fromName, toName, issueDate, orderNumber, subject, ref, body }) => (
   <div className="page">
     <div className="header">
       <h1 className="school-name">{schoolName}</h1>
@@ -40,9 +40,9 @@ const HmSignDoc = ({ schoolName, fromName, toName, issueDate, orderNumber, subje
     </div>
 
     <div className="footer">
-      ABCD School • 1234 Elm Street, Hometown, Country • +91 1234567890
+      ABCD • 1234 Elm Street, Hometown, Country • +91 1234567890
     </div>
   </div>
 );
 
-export default HmSignDoc;
+export default TemplateLeo;
