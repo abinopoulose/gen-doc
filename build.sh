@@ -19,7 +19,7 @@ cd ..
 
 #copy build files correct path
 cp -r digi-sign/dist/* .
-sed -i 's|assets|digi-sign/assets|g' index.html assets/*
+sed -i 's|assets|gen-doc/assets|g' index.html assets/*
 
 
 # commit and push
