@@ -4,7 +4,7 @@ import PdfForm from './pdf-form/pdf-form';
 
 function App() {
   const [formData, setFormData] = useState({
-    schoolName: '',
+    // schoolName: 'GOVT. L.P. SCHOOL MUTHIYAMALA',
     fromName: '',
     orderNumber: '',
     issueDate: '',
@@ -12,7 +12,8 @@ function App() {
     subject: '',
     ref: '',
     body: '',
-    footer: ''
+    footer: '',
+    yoursFaithfully: ''
   });
 
   const handleFormSubmit = (data) => {

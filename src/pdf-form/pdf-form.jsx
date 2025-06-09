@@ -11,7 +11,8 @@ const PdfForm = ({ onSubmit }) => {
     subject: '',
     ref: '',
     body: '',
-    footer: ''
+    footer: '',
+    yoursFaithfully: ''
   });
 
   const handleChange = (e) => {
@@ -152,6 +153,21 @@ const PdfForm = ({ onSubmit }) => {
             />
           </div>
 
+          <div className="formbold-input-flex">
+            <div>
+              <label htmlFor="yoursFaithfully" className="formbold-form-label">Yours Faithfully Text</label>
+              <input
+                type="text"
+                name="yoursFaithfully"
+                id="yoursFaithfully"
+                value={formData.yoursFaithfully}
+                onChange={handleChange}
+                className="formbold-form-input"
+                placeholder="Enter yours faithfully text"
+              />
+            </div>
+          </div>
+
           <div className="formbold-textarea">
             <label htmlFor="footer" className="formbold-form-label">Footer</label>
             <textarea
@@ -164,6 +180,7 @@ const PdfForm = ({ onSubmit }) => {
               rows={2}
             />
           </div>
+
         </form>
       </div>
     </div>

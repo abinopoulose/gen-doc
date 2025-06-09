@@ -5,7 +5,7 @@ import TemplateLeo from '../templates/leo';
 import './pdf-generator.css';
 
 const PdfGenerator = ({ 
-  schoolName,
+  // schoolName,
   fromName,
   orderNumber,
   issueDate,
@@ -13,7 +13,8 @@ const PdfGenerator = ({
   subject,
   ref,
   body,
-  footer 
+  footer,
+  yoursFaithfully
 }) => {
   const printRef = useRef();
   
@@ -50,7 +51,7 @@ const PdfGenerator = ({
     <div className="pdf-container">
       <div className='scrollable-container'>
         <TemplateLeo
-          schoolName={schoolName}
+          // schoolName={schoolName}
           fromName={fromName}
           orderNumber={orderNumber}
           issueDate={issueDate}
@@ -59,12 +60,13 @@ const PdfGenerator = ({
           ref={ref}
           body={body}
           footer={footer}
+          yoursFaithfully={yoursFaithfully}
         />
       </div>
 
       <div ref={printRef} className='render-outside'>
         <TemplateLeo
-          schoolName={schoolName}
+          // schoolName={schoolName}
           fromName={fromName}
           orderNumber={orderNumber}
           issueDate={issueDate}
@@ -73,6 +75,7 @@ const PdfGenerator = ({
           ref={ref}
           body={body}
           footer={footer}
+          yoursFaithfully={yoursFaithfully}
         />
       </div>
       

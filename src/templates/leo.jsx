@@ -1,9 +1,21 @@
 import './leo.css';
+import logo from '../assets/sh-logo.png';
 
-const TemplateLeo = ({ schoolName, fromName, toName, issueDate, orderNumber, subject, ref, body, footer }) => (
+const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, body, footer, yoursFaithfully }) => (
   <div className="page">
     <div className="header">
-      <h1 className="school-name">{schoolName}</h1>
+      <div className="school-header">
+        <div className="logo-container">
+          <img src={logo} alt="School Logo" className="school-logo" />
+        </div>
+        <div className="school-info">
+          <h1 className="school-name">GOVT. L.P. SCHOOL MUTHIYAMALA</h1>
+          <div className="school-details">
+            <p>KUDAYATHOOR P.O., PIN 685590 <br></br>
+            Email: glpsmuthiyamala@gmail.com</p>
+          </div>
+        </div>
+      </div>
       <hr className="header-line" />
       <div className="order-info">
         <span className="order-number">Order No: {orderNumber}</span>
@@ -32,14 +44,19 @@ const TemplateLeo = ({ schoolName, fromName, toName, issueDate, orderNumber, sub
           <span>Ref:</span>
           <span className="ref"> {ref}</span>
         </div>
+        <pre>
         {body.split('\n').map((paragraph, index) => (
           <p key={index} className="body-paragraph">{paragraph}</p>
         ))}
+        </pre>
+        <div className='yours-faithfully-section'>
+          {yoursFaithfully}
+        </div>
       </div>
     </div>
 
     <div className="footer">
-      {footer || 'ABCD • 1234 Elm Street, Hometown, Country • +91 1234567890'}
+      {footer}
     </div>
   </div>
 );
