@@ -107,6 +107,7 @@ body, .page {
 .from-section, .to-section {
   text-align: left;
   margin: 1rem 0;
+  white-space: pre-line;
 }
 
 .name {

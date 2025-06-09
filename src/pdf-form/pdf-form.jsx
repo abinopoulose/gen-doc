@@ -3,7 +3,6 @@ import './pdf-form.css';
 
 const PdfForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
-    schoolName: '',
     fromName: '',
     orderNumber: '',
     issueDate: '',
@@ -46,33 +45,7 @@ const PdfForm = ({ onSubmit }) => {
     <div className="formbold-main-wrapper">
       <div className="formbold-form-wrapper">
         <form onSubmit={handleSubmit}>
-          <div className="formbold-input-flex">
-            <div>
-              <label htmlFor="schoolName" className="formbold-form-label">Institute Name</label>
-              <input
-                type="text"
-                name="schoolName"
-                id="schoolName"
-                value={formData.schoolName}
-                onChange={handleChange}
-                className="formbold-form-input"
-                placeholder="Enter institute name"
-              />
-            </div>
-            <div>
-              <label htmlFor="fromName" className="formbold-form-label">From Name</label>
-              <input
-                type="text"
-                name="fromName"
-                id="fromName"
-                value={formData.fromName}
-                onChange={handleChange}
-                className="formbold-form-input"
-                placeholder="Enter from name"
-              />
-            </div>
-          </div>
-
+          
           <div className="formbold-input-flex">
             <div>
               <label htmlFor="orderNumber" className="formbold-form-label">Order Number</label>
@@ -97,6 +70,19 @@ const PdfForm = ({ onSubmit }) => {
                 className="formbold-form-input"
               />
             </div>
+          </div>
+
+          <div className="formbold-textarea">
+            <label htmlFor="fromName" className="formbold-form-label">From Name</label>
+            <textarea
+              name="fromName"
+              id="fromName"
+              value={formData.fromName}
+              onChange={handleChange}
+              className="formbold-form-input"
+              placeholder="Enter recipient name"
+              rows={4}
+            />
           </div>
 
           <div className="formbold-textarea">
