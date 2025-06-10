@@ -48,7 +48,7 @@ const PdfForm = ({ onSubmit }) => {
           
           <div className="formbold-input-flex">
             <div>
-              <label htmlFor="orderNumber" className="formbold-form-label">Order Number</label>
+              <label htmlFor="orderNumber" className="formbold-form-label">Letter Number</label>
               <input
                 type="text"
                 name="orderNumber"

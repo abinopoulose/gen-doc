@@ -18,7 +18,7 @@ const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, b
       </div>
       <hr className="header-line" />
       <div className="order-info">
-        <span className="order-number">Order No: {orderNumber}</span>
+        <span className="order-number">Letter No: {orderNumber}</span>
         <span className="date">Date: {issueDate}</span>
       </div>
       <div className="from-section">
