@@ -1,6 +1,12 @@
 import './leo.css';
 import logo from '../assets/sh-logo.png';
 
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  const [year, month, day] = dateString.split('-');
+  return `${day}/${month}/${year}`;
+};
+
 const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, body, footer, yoursFaithfully, language }) => (
   <div className="page">
     <div className="header">
@@ -19,7 +25,7 @@ const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, b
       <hr className="header-line" />
       <div className="order-info">
         <span className="order-number">{language=='English'?"Letter No": "നമ്പർ"}: {orderNumber}</span>
-        <span className="date">{language=='English'?"Date": "തീയതി"}: {issueDate}</span>
+        <span className="date">{language=='English'?"Date": "തീയതി"}: {formatDate(issueDate)}</span>
       </div>
       <div className="from-section">
         <span>{language=='English'?"From": "പ്രേഷകൻ"}</span>
