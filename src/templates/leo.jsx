@@ -1,7 +1,7 @@
 import './leo.css';
 import logo from '../assets/sh-logo.png';
 
-const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, body, footer, yoursFaithfully }) => (
+const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, body, footer, yoursFaithfully, language }) => (
   <div className="page">
     <div className="header">
       <div className="school-header">
@@ -18,15 +18,15 @@ const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, b
       </div>
       <hr className="header-line" />
       <div className="order-info">
-        <span className="order-number">Letter No: {orderNumber}</span>
-        <span className="date">Date: {issueDate}</span>
+        <span className="order-number">{language=='English'?"Letter No": "നമ്പർ"}: {orderNumber}</span>
+        <span className="date">{language=='English'?"Date": "തീയതി"}: {issueDate}</span>
       </div>
       <div className="from-section">
-        <span>From:</span>
+        <span>{language=='English'?"From": "പ്രേഷകൻ"}</span>
         <div className="name">{fromName}</div>
       </div>
       <div className="to-section">
-        <span>To:</span>
+        <span>{language=='English'?"To": "സ്വീകർത്താവ്"}</span>
         <div className="to-content">
           {toName}
         </div>
@@ -35,13 +35,13 @@ const TemplateLeo = ({ fromName, toName, issueDate, orderNumber, subject, ref, b
 
     <div className="content">
       <div className="letter-content">
-        <div>Sir,</div>
+        <div>{language=='English'?"Sir": "സർ"},</div>
         <div className="subject-section">
-          <span>Sub:</span>
+          <span>{language=='English'?"Sub": "വിഷയം"}:</span>
           <span className="subject"> {subject}</span>
         </div>
         <div className="ref-section">
-          <span>Ref:</span>
+          <span>{language=='English'?"Ref": "സൂചന"}:</span>
           <span className="ref"> {ref}</span>
         </div>
         <pre>

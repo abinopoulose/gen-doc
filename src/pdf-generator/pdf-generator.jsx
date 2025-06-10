@@ -14,7 +14,9 @@ const PdfGenerator = ({
   ref,
   body,
   footer,
-  yoursFaithfully
+  yoursFaithfully,
+  language
+
 }) => {
   const printRef = useRef();
   
@@ -61,6 +63,7 @@ const PdfGenerator = ({
           body={body}
           footer={footer}
           yoursFaithfully={yoursFaithfully}
+          language={language}
         />
       </div>
 
@@ -76,6 +79,7 @@ const PdfGenerator = ({
           body={body}
           footer={footer}
           yoursFaithfully={yoursFaithfully}
+          language={language}
         />
       </div>
       

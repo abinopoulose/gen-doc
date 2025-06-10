@@ -11,7 +11,8 @@ const PdfForm = ({ onSubmit }) => {
     ref: '',
     body: '',
     footer: '',
-    yoursFaithfully: ''
+    yoursFaithfully: '',
+    language: 'English'
   });
 
   const handleChange = (e) => {
@@ -46,6 +47,22 @@ const PdfForm = ({ onSubmit }) => {
       <div className="formbold-form-wrapper">
         <form onSubmit={handleSubmit}>
           
+          <div className="formbold-input-flex">
+            <div>
+              <label htmlFor="language" className="formbold-form-label">Language</label>
+              <select
+                name="language"
+                id="language"
+                value={formData.language}
+                onChange={handleChange}
+                className="formbold-form-input"
+              >
+                <option value="English">English</option>
+                <option value="Malayalam">Malayalam</option>
+              </select>
+            </div>
+          </div>
+
           <div className="formbold-input-flex">
             <div>
               <label htmlFor="orderNumber" className="formbold-form-label">Letter Number</label>
@@ -152,6 +169,7 @@ const PdfForm = ({ onSubmit }) => {
                 placeholder="Enter yours faithfully text"
               />
             </div>
+        
           </div>
 
           <div className="formbold-textarea">

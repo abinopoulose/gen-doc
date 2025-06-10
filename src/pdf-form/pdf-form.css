@@ -27,7 +27,7 @@ body {
 .formbold-input-flex {
   display: flex;
   gap: 20px;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .formbold-input-flex > div {
@@ -39,7 +39,7 @@ body {
 .formbold-textarea {
   display: flex;
   flex-direction: column;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .formbold-form-label {

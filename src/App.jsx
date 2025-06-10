@@ -13,7 +13,8 @@ function App() {
     ref: '',
     body: '',
     footer: '',
-    yoursFaithfully: ''
+    yoursFaithfully: '',
+    language: 'English'
   });
 
   const handleFormSubmit = (data) => {
